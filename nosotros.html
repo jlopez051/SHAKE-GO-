@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - SHAKE&GO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER / NAVEGACIÓN ========== -->
+    <header>
+        <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+        
+        <nav>
+            <ul>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html" class="active">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="btn-primary">Suscríbete</button>
+        </div>
+    </header>
+
+    <!-- ========== CARRITO PANEL ========== -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>🛒 Tu Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <span>🛍️</span>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cart-total">0,00€</span>
+            </div>
+            <button class="btn-primary cart-checkout" onclick="checkout()">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== HERO DE NOSOTROS ========== -->
+    <section class="page-hero about-hero">
+        <div class="page-hero-content">
+            <h1>Nuestra <span>Historia</span></h1>
+            <p>Descubre quiénes somos, nuestra misión y por qué creemos que cada sorbo puede ser un viaje alrededor del mundo.</p>
+        </div>
+    </section>
+
+    <!-- ========== HISTORIA DE LA MARCA ========== -->
+    <section class="about-story">
+        <div class="story-container">
+            <div class="story-image">
+                <img src="/placeholder.svg?height=400&width=500" alt="Fundadores de Shake&Go">
+            </div>
+            
+            <div class="story-content">
+                <h2>Cómo empezó todo</h2>
+                <p>SHAKE&GO nació en 2024 de una idea simple pero poderosa: <strong>¿y si pudiéramos viajar por el mundo sin movernos de casa?</strong></p>
+                <p>Nuestro fundador, apasionado por los viajes y la alimentación saludable, se dio cuenta de que los sabores de cada país cuentan historias únicas. Decidió traer esas historias a tu mesa en forma de batidos naturales.</p>
+                <p>Hoy, SHAKE&GO es una marca que celebra la diversidad cultural a través de frutas locales e internacionales, elaborando batidos que nutren el cuerpo y alimentan el espíritu aventurero.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MISIÓN, VISIÓN Y VALORES ========== -->
+    <section class="mission-section">
+        <div class="section-title">
+            <h2>Nuestra Esencia</h2>
+            <p>Los principios que guían cada decisión que tomamos</p>
+        </div>
+        
+        <div class="mission-grid">
+            <div class="mission-card">
+                <span class="mission-icon">🎯</span>
+                <h3>Misión</h3>
+                <p>Ofrecer batidos naturales que combinen salud, sabor y diversidad cultural, permitiendo a las personas disfrutar de una experiencia única en cada sorbo.</p>
+            </div>
+            
+            <div class="mission-card">
+                <span class="mission-icon">🔭</span>
+                <h3>Visión</h3>
+                <p>Ser la marca líder en batidos naturales inspirados en sabores del mundo, reconocida por nuestra calidad, sostenibilidad e innovación constante.</p>
+            </div>
+            
+            <div class="mission-card">
+                <span class="mission-icon">💎</span>
+                <h3>Valores</h3>
+                <p>Naturalidad, diversidad, sostenibilidad, innovación y compromiso con el bienestar de nuestros clientes y el planeta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NUESTRO EQUIPO ========== -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2>Nuestro Equipo</h2>
+            <p>Las personas apasionadas que hacen posible SHAKE&GO cada día</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-photo">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Pau De Fez - Cofundador">
+                </div>
+                <h3>Pau De Fez</h3>
+                <p class="team-role">Cofundador & CFO</p>
+                <p class="team-bio">Apasionado por los viajes y la nutrición. Creador del concepto SHAKE&GO.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-photo">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Juan López - Cofundador">
+                </div>
+                <h3>Juan López</h3>
+                <p class="team-role">Cofundador y CEO</p>
+                <p class="team-bio">Especialista en programación y relaciones internacionales. Desarrolla el mundo SHAKE&GO.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-photo">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Carlos Martín - Operaciones">
+                </div>
+                <h3>Carlos Martín</h3>
+                <p class="team-role">Director de Operaciones</p>
+                <p class="team-bio">Garantiza que cada batido llegue fresco y perfecto a tu puerta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOSTENIBILIDAD ========== -->
+    <section class="sustainability-page" id="sostenibilidad">
+        <div class="sustainability-container">
+            <div class="sustainability-content">
+                <h2>Comprometidos con el Planeta</h2>
+                <p>La sostenibilidad no es una opción, es nuestra responsabilidad. En SHAKE&GO trabajamos cada día para minimizar nuestro impacto ambiental.</p>
+                
+                <ul class="sustainability-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Envases 100% reciclables</strong>
+                            <p>Todos nuestros envases están fabricados con materiales reciclables o compostables.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Cero plásticos de un solo uso</strong>
+                            <p>Hemos eliminado completamente los plásticos desechables de nuestra cadena.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Comercio justo</strong>
+                            <p>Trabajamos directamente con productores locales, garantizando precios justos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Huella de carbono neutral</strong>
+                            <p>Compensamos todas nuestras emisiones con proyectos de reforestación.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sustainability-image">
+                <img src="/placeholder.svg?height=400&width=450" alt="Sostenibilidad SHAKE&GO">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROCESO DE ELABORACIÓN ========== -->
+    <section class="process-section">
+        <div class="section-title">
+            <h2>Nuestro Proceso</h2>
+            <p>De la naturaleza a tu mesa en 4 simples pasos</p>
+        </div>
+        
+        <div class="process-grid">
+            <div class="process-card">
+                <span class="process-number">1</span>
+                <h3>Selección</h3>
+                <p>Elegimos las mejores frutas de cada país, priorizando productos de temporada y de comercio justo.</p>
+            </div>
+            
+            <div class="process-card">
+                <span class="process-number">2</span>
+                <h3>Elaboración</h3>
+                <p>Procesamos las frutas en frío para mantener todas sus propiedades nutricionales intactas.</p>
+            </div>
+            
+            <div class="process-card">
+                <span class="process-number">3</span>
+                <h3>Envasado</h3>
+                <p>Utilizamos envases sostenibles que mantienen la frescura y protegen el medio ambiente.</p>
+            </div>
+            
+            <div class="process-card">
+                <span class="process-number">4</span>
+                <h3>Entrega</h3>
+                <p>Enviamos directamente a tu puerta con logística optimizada para reducir emisiones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="about-cta">
+        <h2>¿Listo para empezar tu viaje?</h2>
+        <p>Descubre nuestros sabores y únete a la comunidad SHAKE&GO</p>
+        <div class="cta-buttons">
+            <a href="productos.html" class="btn-primary">Ver productos</a>
+            <a href="contacto.html" class="btn-secondary">Contactar</a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+                <p>Prueba y viaja con los sabores. Batidos naturales que conectan culturas a través del sabor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="productos.html">Todos los sabores</a></li>
+                    <li><a href="productos.html#packs">Packs</a></li>
+                    <li><a href="productos.html">Suscripción mensual</a></li>
+                    <li><a href="productos.html">Novedades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="nosotros.html#sostenibilidad">Sostenibilidad</a></li>
+                    <li><a href="nosotros.html#blog">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">📸</a>
+                    <a href="#">🎵</a>
+                    <a href="#">📘</a>
+                </div>
+                <p class="footer-contact">
+                    shakeandgoes@gmail.com<br>
+                    Tel: 91-1234-5678
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Shake&Go. Todos los derechos reservados. | Diseñado por Juan López Cantavella</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

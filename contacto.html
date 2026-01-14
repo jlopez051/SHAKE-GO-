@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - SHAKE&GO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER / NAVEGACIÓN ========== -->
+    <header>
+        <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+        
+        <nav>
+            <ul>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="btn-primary">Suscríbete</button>
+        </div>
+    </header>
+
+    <!-- ========== CARRITO PANEL ========== -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>🛒 Tu Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <span>🛍️</span>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cart-total">0,00€</span>
+            </div>
+            <button class="btn-primary cart-checkout" onclick="checkout()">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== HERO DE CONTACTO ========== -->
+    <section class="page-hero contact-hero">
+        <div class="page-hero-content">
+            <h1>Ponte en <span>Contacto</span></h1>
+            <p>¿Tienes alguna pregunta, sugerencia o simplemente quieres saludarnos? Estamos aquí para ayudarte.</p>
+        </div>
+    </section>
+
+    <!-- ========== SECCIÓN PRINCIPAL DE CONTACTO ========== -->
+    <section class="contact-section">
+        <div class="contact-container">
+            
+            <!-- Formulario de contacto -->
+            <div class="contact-form-container">
+                <h2>Envíanos un mensaje</h2>
+                <p>Completa el formulario y te responderemos en menos de 24 horas.</p>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono (opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto">Asunto *</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Selecciona un asunto</option>
+                            <option value="pedidos">Consulta sobre pedidos</option>
+                            <option value="productos">Información de productos</option>
+                            <option value="suscripcion">Suscripción mensual</option>
+                            <option value="colaboracion">Colaboración / Prensa</option>
+                            <option value="sugerencia">Sugerencias</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacidad" name="privacidad" required>
+                        <label for="privacidad">Acepto la <a href="#">política de privacidad</a> *</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
+                </form>
+            </div>
+            
+            <!-- Información de contacto directa -->
+            <div class="contact-info">
+                <h2>Información de contacto</h2>
+                <p>También puedes contactarnos directamente a través de los siguientes canales:</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>shakeandgoes@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>91-1234-5678</p>
+                            <small>Lunes a Viernes: 9:00 - 18:00</small>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Calle de la Fruta, 123</p>
+                            <small>28001 Madrid, España</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h4>Síguenos en redes</h4>
+                    <div class="social-links-large">
+                        <a href="#" class="social-link">
+                            <span>📸</span>
+                            <p>Instagram</p>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span>🎵</span>
+                            <p>TikTok</p>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span>📘</span>
+                            <p>Facebook</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PREGUNTAS FRECUENTES ========== -->
+    <section class="faq-section">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Encuentra respuestas a las dudas más comunes sobre nuestros productos y servicios</p>
+        </div>
+        
+        <div class="faq-grid">
+            <div class="faq-card">
+                <h3>🚚 ¿Cuánto tarda el envío?</h3>
+                <p>Los pedidos se entregan en 24-48 horas laborables en península. Para Baleares y Canarias, el plazo es de 3-5 días.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h3>❄️ ¿Cómo conservo los batidos?</h3>
+                <p>Nuestros batidos deben conservarse en frío (entre 2-6°C). Una vez abiertos, consumir en las siguientes 24 horas.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h3>⚠️ ¿Tienen alérgenos?</h3>
+                <p>Todos nuestros batidos son veganos y sin gluten. Algunos contienen frutos secos. Consulta la etiqueta de cada producto.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h3>↩️ ¿Puedo devolver mi pedido?</h3>
+                <p>Si no estás satisfecho, contacta con nosotros en las primeras 24 horas tras la entrega. Te ofrecemos reembolso o cambio.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h3>🔄 ¿Cómo funciona la suscripción?</h3>
+                <p>Recibes batidos cada semana o mes según elijas. Puedes pausar, modificar o cancelar en cualquier momento sin compromiso.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h3>💳 ¿Qué métodos de pago aceptan?</h3>
+                <p>Aceptamos tarjetas de crédito/débito, PayPal, Bizum y transferencia bancaria. Todos los pagos son 100% seguros.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAPA / UBICACIÓN ========== -->
+    <section class="map-section">
+        <div class="section-title">
+            <h2>Encuéntranos</h2>
+            <p>Visita nuestra oficina central en Madrid</p>
+        </div>
+        
+        <div class="map-container">
+            <img src="/placeholder.svg?height=400&width=1200" alt="Mapa de ubicación SHAKE&GO">
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+                <p>Prueba y viaja con los sabores. Batidos naturales que conectan culturas a través del sabor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="productos.html">Todos los sabores</a></li>
+                    <li><a href="productos.html#packs">Packs</a></li>
+                    <li><a href="productos.html">Suscripción mensual</a></li>
+                    <li><a href="productos.html">Novedades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="nosotros.html#sostenibilidad">Sostenibilidad</a></li>
+                    <li><a href="nosotros.html#blog">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">📸</a>
+                    <a href="#">🎵</a>
+                    <a href="#">📘</a>
+                </div>
+                <p class="footer-contact">
+                    shakeandgoes@gmail.com<br>
+                    Tel: 91-1234-5678
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Shake&Go. Todos los derechos reservados. | Diseñado por Juan López Cantavella</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

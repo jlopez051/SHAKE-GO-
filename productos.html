@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - SHAKE&GO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER / NAVEGACIÓN ========== -->
+    <header>
+        <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+        
+        <nav>
+            <ul>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="btn-primary">Suscríbete</button>
+        </div>
+    </header>
+
+    <!-- ========== CARRITO PANEL ========== -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>🛒 Tu Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <span>🛍️</span>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cart-total">0,00€</span>
+            </div>
+            <button class="btn-primary cart-checkout" onclick="checkout()">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== HERO DE PRODUCTOS ========== -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Nuestros <span>Productos</span></h1>
+            <p>Explora nuestra colección de batidos naturales inspirados en sabores de todo el mundo. Cada sorbo es un viaje.</p>
+        </div>
+    </section>
+
+    <!-- ========== FILTROS DE CATEGORÍA ========== -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">🌴 Tropical</button>
+            <button class="filter-btn">🥬 Detox</button>
+            <button class="filter-btn">🍇 Antioxidante</button>
+            <button class="filter-btn">✨ Wellness</button>
+            <button class="filter-btn">🌅 Desayuno</button>
+        </div>
+    </section>
+
+    <!-- ========== CATÁLOGO COMPLETO ========== -->
+    <section class="products-page" id="sabores">
+        <div class="products-grid-full">
+            
+            <div class="product-card" data-category="tropical">
+                <div class="product-image">
+                    <span class="product-badge">Más vendido</span>
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Tropical Mango">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇹🇭 Tailandia</p>
+                    <h3 class="product-name">Tropical Mango</h3>
+                    <p class="product-description">Mango, maracuyá y un toque de lima. Refrescante y exótico.</p>
+                    <div class="product-meta">
+                        <span class="product-calories">120 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(1, 'Tropical Mango', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="detox">
+                <div class="product-image green-bg">
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Green Boost">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇳🇿 Nueva Zelanda</p>
+                    <h3 class="product-name">Green Boost</h3>
+                    <p class="product-description">Kiwi, espinaca, manzana verde y jengibre. Energía pura.</p>
+                    <div class="product-meta">
+                        <span class="product-calories">95 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(2, 'Green Boost', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="antioxidante">
+                <div class="product-image pink-bg">
+                    <span class="product-badge">Nuevo</span>
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Berry Fusion">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇧🇷 Brasil</p>
+                    <h3 class="product-name">Berry Fusion</h3>
+                    <p class="product-description">Açaí, arándanos, frambuesas y plátano. Antioxidante natural.</p>
+                    <div class="product-meta">
+                        <span class="product-calories">140 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(3, 'Berry Fusion', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="wellness">
+                <div class="product-image yellow-bg">
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Golden Sunrise">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇮🇳 India</p>
+                    <h3 class="product-name">Golden Sunrise</h3>
+                    <p class="product-description">Mango, cúrcuma, naranja y un toque de pimienta negra.</p>
+                    <div class="product-meta">
+                        <span class="product-calories">115 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(4, 'Golden Sunrise', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="desayuno">
+                <div class="product-image purple-bg">
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Nordic Berry">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇫🇮 Finlandia</p>
+                    <h3 class="product-name">Nordic Berry</h3>
+                    <p class="product-description">Arándanos árticos, frambuesas y avena. Suave y nutritivo.</p>
+                    <div class="product-meta">
+                        <span class="product-calories">165 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(5, 'Nordic Berry', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="tropical">
+                <div class="product-image">
+                    <span class="product-badge">Popular</span>
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Caribbean Dream">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇯🇲 Jamaica</p>
+                    <h3 class="product-name">Caribbean Dream</h3>
+                    <p class="product-description">Piña, coco, plátano y un toque de ron (sin alcohol).</p>
+                    <div class="product-meta">
+                        <span class="product-calories">155 kcal</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(6, 'Caribbean Dream', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECCIÓN DE PACKS ========== -->
+    <section class="packs-section" id="packs">
+        <div class="section-title">
+            <h2>Nuestros Packs</h2>
+            <p>Ahorra combinando tus sabores favoritos con nuestros packs especiales</p>
+        </div>
+        
+        <div class="packs-grid">
+            <div class="pack-card">
+                <div class="pack-card-image">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Pack Viajero">
+                </div>
+                <div class="pack-card-info">
+                    <h3>Pack Viajero</h3>
+                    <p>3 sabores: Tropical Mango, Green Boost y Berry Fusion</p>
+                    <div class="pack-card-price">
+                        <span class="current">15,95€</span>
+                        <span class="original">18,00€</span>
+                    </div>
+                    <button class="btn-primary" onclick="addToCart('pack-viajero', 'Pack Viajero', 15.95, '/placeholder.svg?height=200&width=300')">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <div class="pack-card">
+                <div class="pack-card-image">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Pack Detox">
+                </div>
+                <div class="pack-card-info">
+                    <h3>Pack Detox</h3>
+                    <p>3 sabores: Green Boost, Golden Sunrise y Nordic Berry</p>
+                    <div class="pack-card-price">
+                        <span class="current">15,95€</span>
+                        <span class="original">18,00€</span>
+                    </div>
+                    <button class="btn-primary" onclick="addToCart('pack-detox', 'Pack Detox', 15.95, '/placeholder.svg?height=200&width=300')">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== INFORMACIÓN NUTRICIONAL ========== -->
+    <section class="nutrition-info">
+        <div class="section-title">
+            <h2>Información Nutricional</h2>
+            <p>Todos nuestros batidos están elaborados con ingredientes 100% naturales</p>
+        </div>
+        
+        <div class="nutrition-grid">
+            <div class="nutrition-card">
+                <span class="nutrition-icon">🚫</span>
+                <h3>Sin azúcares añadidos</h3>
+                <p>Solo el azúcar natural de las frutas</p>
+            </div>
+            
+            <div class="nutrition-card">
+                <span class="nutrition-icon">💊</span>
+                <h3>Rico en vitaminas</h3>
+                <p>Vitaminas A, C, E y del grupo B</p>
+            </div>
+            
+            <div class="nutrition-card">
+                <span class="nutrition-icon">🔥</span>
+                <h3>Bajo en calorías</h3>
+                <p>Entre 95 y 165 kcal por batido</p>
+            </div>
+            
+            <div class="nutrition-card">
+                <span class="nutrition-icon">🌿</span>
+                <h3>Sin conservantes</h3>
+                <p>100% natural, sin aditivos químicos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+                <p>Prueba y viaja con los sabores. Batidos naturales que conectan culturas a través del sabor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="productos.html">Todos los sabores</a></li>
+                    <li><a href="productos.html#packs">Packs</a></li>
+                    <li><a href="productos.html">Suscripción mensual</a></li>
+                    <li><a href="productos.html">Novedades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="nosotros.html#sostenibilidad">Sostenibilidad</a></li>
+                    <li><a href="nosotros.html#blog">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">📸</a>
+                    <a href="#">🎵</a>
+                    <a href="#">📘</a>
+                </div>
+                <p class="footer-contact">
+                    shakeandgoes@gmail.com<br>
+                    Tel: 91-1234-5678
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Shake&Go. Todos los derechos reservados. | Diseñado por Juan López Cantavella</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

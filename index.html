@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKE&GO - Prueba y viaja con los sabores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER / NAVEGACIÓN ========== -->
+    <header>
+        <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+        
+        <nav>
+            <ul>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="btn-primary">Suscríbete</button>
+        </div>
+    </header>
+
+    <!-- ========== CARRITO PANEL ========== -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>🛒 Tu Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <span>🛍️</span>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cart-total">0,00€</span>
+            </div>
+            <button class="btn-primary cart-checkout" onclick="checkout()">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🌍 Sabores del mundo</span>
+            <h1>Disfruta el mundo en <span>cada sorbo</span></h1>
+            <p>Batidos naturales elaborados con frutas locales e internacionales. Salud, sabor y comodidad en un solo producto, listo para llevar.</p>
+            <div class="hero-buttons">
+                <a href="productos.html#sabores" class="btn-primary">Explorar sabores</a>
+                <a href="productos.html#packs" class="btn-secondary">Ver packs</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/placeholder.svg?height=400&width=300" alt="Batidos Shake&Go">
+        </div>
+    </section>
+
+    <!-- ========== VALORES DE MARCA ========== -->
+    <section class="values">
+        <div class="section-title">
+            <h2>¿Por qué SHAKE&GO?</h2>
+            <p>Combinamos ingredientes naturales, diseño atractivo y variedad cultural para ofrecerte una experiencia única</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🍓</div>
+                <h3>100% Natural</h3>
+                <p>Frutas frescas de todo el mundo, sin conservantes ni azúcares añadidos</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3>Sostenible</h3>
+                <p>Packaging eco-friendly y compromiso con el medio ambiente</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🌎</div>
+                <h3>Multicultural</h3>
+                <p>Sabores inspirados en distintos países para viajar con cada sorbo</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h3>Práctico</h3>
+                <p>Listo para llevar, perfecto para tu ritmo de vida activo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CATÁLOGO DE PRODUCTOS ========== -->
+    <section class="products" id="productos">
+        <div class="section-title">
+            <h2>Nuestros Sabores</h2>
+            <p>Cada batido es un viaje a un rincón del mundo, elaborado con las mejores frutas de cada región</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Más vendido</span>
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Tropical">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇹🇭 Tailandia</p>
+                    <h3 class="product-name">Tropical Mango</h3>
+                    <p class="product-description">Mango, maracuyá y un toque de lima. Refrescante y exótico.</p>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(1, 'Tropical Mango', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Green Boost">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇳🇿 Nueva Zelanda</p>
+                    <h3 class="product-name">Green Boost</h3>
+                    <p class="product-description">Kiwi, espinaca, manzana verde y jengibre. Energía pura.</p>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(2, 'Green Boost', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Nuevo</span>
+                    <img src="/placeholder.svg?height=200&width=150" alt="Batido Berry Fusion">
+                </div>
+                <div class="product-info">
+                    <p class="product-country">🇧🇷 Brasil</p>
+                    <h3 class="product-name">Berry Fusion</h3>
+                    <p class="product-description">Açaí, arándanos, frambuesas y plátano. Antioxidante natural.</p>
+                    <div class="product-footer">
+                        <span class="product-price">6,00€</span>
+                        <button class="add-to-cart" onclick="addToCart(3, 'Berry Fusion', 6.00, '/placeholder.svg?height=200&width=150')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="products-cta">
+            <a href="productos.html" class="btn-secondary">Ver todos los productos →</a>
+        </div>
+    </section>
+
+    <!-- ========== PACK VIAJERO ========== -->
+    <section class="pack-section" id="packs">
+        <div class="pack-container">
+            <div class="pack-content">
+                <h2>Pack <span>Viajero</span></h2>
+                <p>Descubre tres sabores del mundo en un solo pack. La forma perfecta de empezar tu aventura Shake&Go.</p>
+                <div class="pack-price">
+                    <span class="current">15,95€</span>
+                    <span class="original">18,00€</span>
+                </div>
+                <ul class="pack-features">
+                    <li>3 sabores diferentes</li>
+                    <li>Envío gratis a partir de 20€</li>
+                    <li>Packaging 100% reciclable</li>
+                    <li>Descuento exclusivo online</li>
+                </ul>
+                <button class="btn-primary" onclick="addToCart('pack-viajero', 'Pack Viajero', 15.95, '/placeholder.svg?height=350&width=400')">Comprar pack</button>
+            </div>
+            <div class="pack-image">
+                <img src="/placeholder.svg?height=350&width=400" alt="Pack Viajero">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOSTENIBILIDAD ========== -->
+    <section class="sustainability">
+        <div class="sustainability-container">
+            <div class="sustainability-content">
+                <h2>Comprometidos con el planeta</h2>
+                <p>En Shake&Go creemos que cuidar de ti y del planeta van de la mano. Por eso, todos nuestros envases son sostenibles y trabajamos con productores locales.</p>
+                <div class="eco-badges">
+                    <div class="eco-badge">
+                        <span>♻️</span>
+                        <div><strong>100% Reciclable</strong></div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🌿</span>
+                        <div><strong>Sin plásticos</strong></div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🤝</span>
+                        <div><strong>Comercio justo</strong></div>
+                    </div>
+                </div>
+                <a href="nosotros.html#sostenibilidad" class="btn-secondary">Saber más</a>
+            </div>
+            <div class="pack-image">
+                <img src="/placeholder.svg?height=300&width=350" alt="Sostenibilidad">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="newsletter">
+        <h2>Únete a la comunidad Shaker</h2>
+        <p>Recibe descuentos exclusivos, nuevos sabores y contenido especial directamente en tu email</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Tu email" required>
+            <button type="submit" class="btn-primary">Suscribirme</button>
+        </form>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SHAKE<span>&</span>GO</a>
+                <p>Prueba y viaja con los sabores. Batidos naturales que conectan culturas a través del sabor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="productos.html">Todos los sabores</a></li>
+                    <li><a href="productos.html#packs">Packs</a></li>
+                    <li><a href="productos.html">Suscripción mensual</a></li>
+                    <li><a href="productos.html">Novedades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="nosotros.html#sostenibilidad">Sostenibilidad</a></li>
+                    <li><a href="nosotros.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">📸</a>
+                    <a href="#">🎵</a>
+                    <a href="#">📘</a>
+                </div>
+                <p class="footer-contact">
+                    shakeandgoes@gmail.com<br>
+                    Tel: 91-1234-5678
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Shake&Go. Todos los derechos reservados. | Diseñado por Juan López Cantavella</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
